@@ -1,0 +1,27 @@
+{
+  "name": "gifted-pair-code",
+  "main": "./gifted.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "start": "pm2 start gifted.js --deep-monitoring --attach --name gifted",
+    "stop": "pm2 stop gifted",
+    "restart": "pm2 restart gifted"
+  },
+  "author": "Gifted Tech",
+  "license": "GPL-3.0 license",
+  "dependencies": {
+    "@whiskeysockets/baileys": "npm:@fizzxydev/baileys-pro",
+    "bcryptjs": "^3.0.2",
+    "body-parser": "*",
+    "express": "*",
+    "fs": "*",
+    "path": "*",
+    "pino": "*",
+    "pino-pretty": "^13.0.0",
+    "pm2": "*",
+    "qrcode": "*"
+  }
+}
