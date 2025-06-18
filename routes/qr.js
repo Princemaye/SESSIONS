@@ -251,16 +251,7 @@ router.get('/', async (req, res) => {
                         const giftedMess = {
                             image: { url: 'https://raw.githubusercontent.com/Mayelprince/url/main/menun.jpg' },
                             caption: GIFTED_TEXT,
-                            contextInfo: {
-                                mentionedJid: [Gifted.user.id],
-                                forwardingScore: 5,
-                                isForwarded: true,
-                                forwardedNewsletterMessageInfo: {
-                                    newsletterJid: '120363322606369079@newsletter',
-                                    newsletterName: "PRINCE-TECH",
-                                    serverMessageId: 143
-                                }
-                            }
+                            
                         };
                         await Gifted.sendMessage(Gifted.user.id, giftedMess, { quoted: Sess });
 
