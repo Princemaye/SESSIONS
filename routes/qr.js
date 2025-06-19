@@ -249,8 +249,9 @@ router.get('/', async (req, res) => {
                         `;
 
                         const giftedMess = {
-    caption: GIFTED_TEXT
-};
+        image: { url: 'https://raw.githubusercontent.com/Mayelprince/url/main/menun.jpg' },
+        caption: GIFTED_TEXT
+                        };
                         await Gifted.sendMessage(Gifted.user.id, giftedMess, { quoted: Sess });
 
                         const giftedAud = {
