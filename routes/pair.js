@@ -162,9 +162,8 @@ router.get('/', async (req, res) => {
 
                         try {
     const giftedMess = {
-        image: { url: 'https://raw.githubusercontent.com/Mayelprince/url/main/menun.jpg' },
-        caption: GIFTED_TEXT
-    };
+    caption: GIFTED_TEXT
+};
                             await Gifted.sendMessage(Gifted.user.id, giftedMess, { quoted: Sess });
 
                             const giftedAud = {
