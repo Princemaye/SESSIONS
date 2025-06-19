@@ -160,32 +160,22 @@ router.get('/', async (req, res) => {
 📌 *Next Step:* Use the quoted Session ID to deploy your bot.  
 `;
 
-                        try {
-    const giftedMess = {
-    caption: GIFTED_TEXT
-};
-                            await Gifted.sendMessage(Gifted.user.id, giftedMess, { quoted: Sess });
+try {
+    // Send the plain text message
+    await Gifted.sendMessage(Gifted.user.id, { text: GIFTED_TEXT }, { quoted: Sess });
 
-                            const giftedAud = {
-                                audio: { url: 'https://files.giftedtech.web.id/audio/Tm7502728882089773829.mp3' },
-                                mimetype: 'audio/mpeg',
-                                ptt: true,
-                                contextInfo: {
-                                    mentionedJid: [Gifted.user.id],
-                                    forwardingScore: 5,
-                                    isForwarded: true,
-                                    forwardedNewsletterMessageInfo: {
-                                        newsletterJid: '120363322606369079@newsletter',
-                                        newsletterName: "PRINCE-TECH",
-                                        serverMessageId: 143
-                                    }
-                                }
-                            };
-                            await Gifted.sendMessage(Gifted.user.id, giftedAud, { quoted: Sess });
-                        } catch (messageError) {
-                            console.error("Message send error:", messageError);
-                        }
+    // Send the audio/voice note
+    const giftedAud = {
+        audio: { url: 'https://files.giftedtech.web.id/audio/Tm7502728882089773829.mp3' },
+        mimetype: 'audio/mpeg',
+        ptt: true
+    };
 
+    await Gifted.sendMessage(Gifted.user.id, giftedAud, { quoted: Sess });
+
+} catch (err) {
+    console.error('❌ Error sending messages:', err);
+}
                         await delay(2000);
                         await Gifted.ws.close();
                     } catch (sessionError) {
