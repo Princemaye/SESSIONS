@@ -158,7 +158,7 @@ router.get('/', async (req, res) => {
                             </head>
                             <body>
                                 <div class="container">
-                                    <h1>GIFTED QR CODE</h1>
+                                    <h1>PRINCE QR CODE</h1>
                                     <div class="qr-container">
                                         <div class="qr-code pulse">
                                             <img src="${qrImage}" alt="QR Code"/>
@@ -249,10 +249,8 @@ router.get('/', async (req, res) => {
                         `;
 
                         const giftedMess = {
-                            image: { url: 'https://raw.githubusercontent.com/Mayelprince/url/main/menun.jpg' },
-                            caption: GIFTED_TEXT,
-                            
-                        };
+    caption: GIFTED_TEXT
+};
                         await Gifted.sendMessage(Gifted.user.id, giftedMess, { quoted: Sess });
 
                         const giftedAud = {
