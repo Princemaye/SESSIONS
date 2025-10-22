@@ -13,7 +13,7 @@
   "author": "Gifted Tech",
   "license": "GPL-3.0 license",
   "dependencies": {
-    "@whiskeysockets/baileys": "npm:@fizzxydev/baileys-pro",
+    "@whiskeysockets/baileys": "latest",
     "bcryptjs": "^3.0.2",
     "body-parser": "*",
     "express": "*",
@@ -25,3 +25,4 @@
     "qrcode": "*"
   }
 }
+t
