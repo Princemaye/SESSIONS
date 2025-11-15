@@ -6,7 +6,8 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "start": "pm2 start gifted.js --deep-monitoring --attach --name gifted",
+    "build": "echo 'Nothing to build'",
+    "start": "node gifted.js",
     "stop": "pm2 stop gifted",
     "restart": "pm2 restart gifted"
   },
@@ -25,4 +26,3 @@
     "qrcode": "*"
   }
 }
-t
