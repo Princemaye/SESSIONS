@@ -14,7 +14,7 @@
   "author": "Gifted Tech",
   "license": "GPL-3.0 license",
   "dependencies": {
-    "@whiskeysockets/baileys": "github:xdking0/Malvin-Baileys",
+    "@whiskeysockets/baileys": "npm:angularasockets",
     "bcryptjs": "^3.0.2",
     "body-parser": "*",
     "express": "*",
