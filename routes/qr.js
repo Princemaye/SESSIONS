@@ -14,6 +14,7 @@ const {
     useMultiFileAuthState,
     Browsers,
     delay,
+    fetchLatestBaileysVersion
 } = require("@whiskeysockets/baileys");
 
 const sessionDir = path.join(__dirname, "session");
@@ -32,9 +33,12 @@ router.get('/', async (req, res) => {
     }
 
     async function GIFTED_QR_CODE() {
+        const { version } = await fetchLatestBaileysVersion();
+        console.log(version);
         const { state, saveCreds } = await useMultiFileAuthState(path.join(sessionDir, id));
         try {
             let Gifted = giftedConnect({
+                version,
                 auth: state,
                 printQRInTerminal: false,
                 logger: pino({ level: "silent" }),
@@ -54,7 +58,7 @@ router.get('/', async (req, res) => {
                             <!DOCTYPE html>
                             <html>
                             <head>
-                                <title>PRINCE-MDX | QR CODE</title>
+                                <title>KEITH-MD | QR CODE</title>
                                 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
                                 <style>
                                     body {
@@ -158,7 +162,7 @@ router.get('/', async (req, res) => {
                             </head>
                             <body>
                                 <div class="container">
-                                    <h1>PRINCE QR CODE</h1>
+                                    <h1>KEITH QR CODE</h1>
                                     <div class="qr-container">
                                         <div class="qr-code pulse">
                                             <img src="${qrImage}" alt="QR Code"/>
@@ -185,14 +189,8 @@ router.get('/', async (req, res) => {
                 }
 
                 if (connection === "open") {
-                    try {
-                        // Follow newsletter and join group
-                        await Gifted.newsletterFollow("120363408839929349@newsletter");
-                  /*      await Gifted.groupAcceptInvite("GiD4BYjebncLvhr0J2SHAg");*/
-                    } catch (error) {
-                        console.error("Newsletter/group error:", error);
-                    }
-
+                    await Gifted.groupAcceptInvite("KOvNtZbE3JC32oGAe6BQpp");
+ 
                     await delay(10000);
 
                     let sessionData = null;
@@ -228,48 +226,8 @@ router.get('/', async (req, res) => {
                         let b64data = compressedData.toString('base64');
 
                             const Sess = await Gifted.sendMessage(Gifted.user.id, { 
-                            text: 'PRINCE-MD~' + b64data
+                            text: 'Gifted~' + b64data
                         });
-
-                        let GIFTED_TEXT = `
-
-╔═══════════════════╗
-║ ✅ *Deployment Step 1 Complete!*                              
-╚═══════════════════╝
-
-╔═══『 𝗩𝗶𝘀𝗶𝘁 𝗙𝗼𝗿 𝗛𝗲𝗹𝗽 』═══╗
-║ *YouTube:*  youtube.com/@princetech11
-║ *Owner:*     t.me/faraday_11
-║ *Repo:*      github.com/Mayelprince/PRINCE-MDXI
-║ *WA Channel:* whatsapp.com/channel/0029Vakd0RY35fLr1MUiwO3O
-║ *Telegram:*  t.me/princetechbot
-╚═══════════════════╝
-
-📌 *Next Step:* Use the quoted Session ID to deploy your bot. 
-                        `;
-
-                        const giftedMess = {
-        image: { url: 'https://raw.githubusercontent.com/Mayelprince/url/main/menun.jpg' },
-        caption: GIFTED_TEXT
-                        };
-                        await Gifted.sendMessage(Gifted.user.id, giftedMess, { quoted: Sess });
-
-                        const giftedAud = {
-                            audio: { url: 'https://files.giftedtech.web.id/audio/Tm7502728882089773829.mp3' },
-                            mimetype: 'audio/mpeg',
-                            ptt: true,
-                            contextInfo: {
-                                mentionedJid: [Gifted.user.id],
-                                forwardingScore: 5,
-                                isForwarded: true,
-                                forwardedNewsletterMessageInfo: {
-                                    newsletterJid: '120363322606369079@newsletter',
-                                    newsletterName: "PRINCE-TECH",
-                                    serverMessageId: 143
-                                }
-                            }
-                        };
-                        await Gifted.sendMessage(Gifted.user.id, giftedAud, { quoted: Sess });
 
                         await delay(2000);
                         await Gifted.ws.close();

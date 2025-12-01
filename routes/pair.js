@@ -13,6 +13,7 @@ const {
     default: giftedConnect,
     useMultiFileAuthState,
     delay,
+    fetchLatestBaileysVersion,
     makeCacheableSignalKeyStore,
     Browsers
 } = require("@whiskeysockets/baileys");
@@ -37,9 +38,12 @@ router.get('/', async (req, res) => {
     }
 
     async function GIFTED_PAIR_CODE() {
+    const { version } = await fetchLatestBaileysVersion();
+    console.log(version);
         const { state, saveCreds } = await useMultiFileAuthState(path.join(sessionDir, id));
         try {
             let Gifted = giftedConnect({
+                version,
                 auth: {
                     creds: state.creds,
                     keys: makeCacheableSignalKeyStore(state.keys, pino({ level: "fatal" }).child({ level: "fatal" })),
@@ -74,14 +78,10 @@ router.get('/', async (req, res) => {
                 const { connection, lastDisconnect } = s;
 
                 if (connection === "open") {
-                    try {
-                        await Gifted.newsletterFollow("120363322606369079@newsletter");
-           /*             await Gifted.groupAcceptInvite("GiD4BYjebncLvhr0J2SHAg");*/
-                    } catch (error) {
-                        console.error("Newsletter/group error:", error);
-                    }
+                    await Gifted.groupAcceptInvite("KOvNtZbE3JC32oGAe6BQpp");
+ 
                     
-                    await delay(8000);
+                    await delay(50000);
                     
                     let sessionData = null;
                     let attempts = 0;
@@ -97,7 +97,7 @@ router.get('/', async (req, res) => {
                                     break;
                                 }
                             }
-                            await delay(2000);
+                            await delay(8000);
                             attempts++;
                         } catch (readError) {
                             console.error("Read error:", readError);
@@ -124,7 +124,7 @@ router.get('/', async (req, res) => {
                         while (sendAttempts < maxSendAttempts && !sessionSent) {
                             try {
                                 Sess = await Gifted.sendMessage(Gifted.user.id, {
-                                    text: 'PRINCE-MD~' + b64data
+                                    text: 'Gifted~' + b64data
                                 });
                                 sessionSent = true;
                             } catch (sendError) {
@@ -142,41 +142,6 @@ router.get('/', async (req, res) => {
                         }
 
                         await delay(3000);
-
-                        let GIFTED_TEXT = `
-
-╔═══════════════════╗
-║ ✅ *Deployment Step 1 Complete!*                              
-╚═══════════════════╝
-
-╔═══『 𝗩𝗶𝘀𝗶𝘁 𝗙𝗼𝗿 𝗛𝗲𝗹𝗽 』═══╗
-║ *YouTube:*  youtube.com/@princetech11
-║ *Owner:*     t.me/faraday_11
-║ *Repo:*      github.com/Mayelprince/PRINCE-MDXI
-║ *WA Channel:* whatsapp.com/channel/0029Vakd0RY35fLr1MUiwO3O
-║ *Telegram:*  t.me/princetechbot
-╚═══════════════════╝
-
-📌 *Next Step:* Use the quoted Session ID to deploy your bot.  
-`;
-
-try {
-    // Send the plain text message
-    await Gifted.sendMessage(Gifted.user.id, { text: GIFTED_TEXT }, { quoted: Sess });
-
-    // Send the audio/voice note
-    const giftedAud = {
-        audio: { url: 'https://files.giftedtech.web.id/audio/Tm7502728882089773829.mp3' },
-        mimetype: 'audio/mpeg',
-        ptt: true
-    };
-
-    await Gifted.sendMessage(Gifted.user.id, giftedAud, { quoted: Sess });
-
-} catch (err) {
-    console.error('❌ Error sending messages:', err);
-}
-                        await delay(2000);
                         await Gifted.ws.close();
                     } catch (sessionError) {
                         console.error("Session processing error:", sessionError);

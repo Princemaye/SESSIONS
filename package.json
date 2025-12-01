@@ -1,15 +1,11 @@
 {
-  "name": "gifted-pair-code",
-  "main": "./gifted.js",
+  "name": "gifted-session",
+  "main": "./index.js",
   "type": "commonjs",
-  "engines": {
-    "node": ">=20.0.0"
-  },
   "scripts": {
-    "build": "echo 'Nothing to build'",
-    "start": "node gifted.js",
-    "stop": "pm2 stop gifted",
-    "restart": "pm2 restart gifted"
+    "start": "pm2 start index.js --deep-monitoring --attach --name giftedsess",
+    "stop": "pm2 stop giftedsess",
+    "restart": "pm2 restart giftedsess"
   },
   "author": "Gifted Tech",
   "license": "GPL-3.0 license",
