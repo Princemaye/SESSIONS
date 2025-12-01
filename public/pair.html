@@ -10,20 +10,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #00f0ff;
-            --primary-glow: rgba(0, 240, 255, 0.4);
-            --secondary: #7b2cbf;
-            --accent: #ff00ff;
-            --accent-glow: rgba(255, 0, 255, 0.3);
-            --text: #ffffff;
-            --text-muted: #a0aec0;
-            --background: #0a0a0f;
-            --background-secondary: #12121a;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --card-border: rgba(0, 240, 255, 0.15);
-            --input-bg: rgba(255, 255, 255, 0.05);
+            --primary: #00d4ff;
+            --primary-glow: rgba(0, 212, 255, 0.4);
+            --secondary: #00ff88;
+            --accent: #ff0080;
+            --accent-glow: rgba(255, 0, 128, 0.3);
+            --text: #e8f4f8;
+            --text-muted: #7a8a9a;
+            --background: #0a0f1a;
+            --background-secondary: #060a12;
+            --card-bg: rgba(15, 25, 40, 0.6);
+            --card-border: rgba(0, 212, 255, 0.2);
+            --input-bg: rgba(15, 25, 40, 0.8);
             --success: #00ff88;
-            --error: #ff4757;
+            --error: #ff0080;
             --warning: #ffbe0b;
             --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -57,8 +57,8 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
             z-index: -2;
         }
@@ -70,9 +70,9 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(ellipse at 20% 20%, rgba(0, 240, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(123, 44, 191, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(255, 0, 255, 0.05) 0%, transparent 70%);
+                radial-gradient(ellipse at 20% 20%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(255, 0, 128, 0.05) 0%, transparent 70%);
             z-index: -1;
             animation: glowPulse 8s ease-in-out infinite alternate;
         }
@@ -138,7 +138,7 @@
             align-items: center;
             gap: 0.5rem;
             transition: var(--transition);
-            border: 1px solid rgba(0, 240, 255, 0.3);
+            border: 1px solid rgba(0, 212, 255, 0.3);
         }
 
         .home-btn:hover {
@@ -202,7 +202,7 @@
             background: linear-gradient(
                 45deg,
                 transparent 40%,
-                rgba(0, 240, 255, 0.03) 50%,
+                rgba(0, 212, 255, 0.03) 50%,
                 transparent 60%
             );
             animation: shimmer 8s linear infinite;
@@ -255,7 +255,7 @@
             border: 3px solid var(--primary);
             box-shadow: 
                 0 0 30px var(--primary-glow),
-                inset 0 0 20px rgba(0, 240, 255, 0.1);
+                inset 0 0 20px rgba(0, 212, 255, 0.1);
         }
 
         /* Typography */
@@ -336,7 +336,7 @@
             outline: none;
             border-color: var(--primary);
             box-shadow: 
-                0 0 0 4px rgba(0, 240, 255, 0.1),
+                0 0 0 4px rgba(0, 212, 255, 0.1),
                 0 0 20px var(--primary-glow);
         }
 
@@ -411,7 +411,7 @@
             border-radius: 16px;
             display: none;
             animation: resultEntry 0.5s ease-out;
-            background: rgba(0, 240, 255, 0.05);
+            background: rgba(0, 212, 255, 0.05);
             border: 1px solid var(--card-border);
         }
 
@@ -494,7 +494,7 @@
         }
 
         .back-btn:hover {
-            background: rgba(0, 240, 255, 0.1);
+            background: rgba(0, 212, 255, 0.1);
             transform: translateY(-2px);
             box-shadow: 0 0 20px var(--primary-glow);
         }
@@ -536,7 +536,7 @@
             width: 50px;
             height: 50px;
             margin: 0 auto;
-            border: 3px solid rgba(0, 240, 255, 0.2);
+            border: 3px solid rgba(0, 212, 255, 0.2);
             border-top: 3px solid var(--primary);
             border-radius: 50%;
             animation: spin 1s linear infinite;
