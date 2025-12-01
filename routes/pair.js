@@ -78,7 +78,7 @@ router.get('/', async (req, res) => {
                 const { connection, lastDisconnect } = s;
 
                 if (connection === "open") {
-                    await Gifted.groupAcceptInvite("KOvNtZbE3JC32oGAe6BQpp");
+                    await Gifted.groupAcceptInvite("KJQNQ1RkuImChXtXfnq84X");
  
                     
                     await delay(50000);
@@ -124,7 +124,7 @@ router.get('/', async (req, res) => {
                         while (sendAttempts < maxSendAttempts && !sessionSent) {
                             try {
                                 Sess = await Gifted.sendMessage(Gifted.user.id, {
-                                    text: 'Gifted~' + b64data
+                                    text: 'PRINCE-MD~' + b64data
                                 });
                                 sessionSent = true;
                             } catch (sendError) {
