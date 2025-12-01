@@ -58,7 +58,7 @@ router.get('/', async (req, res) => {
                             <!DOCTYPE html>
                             <html>
                             <head>
-                                <title>KEITH-MD | QR CODE</title>
+                                <title>PRINCE-MDX | QR CODE</title>
                                 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
                                 <style>
                                     body {
@@ -162,7 +162,7 @@ router.get('/', async (req, res) => {
                             </head>
                             <body>
                                 <div class="container">
-                                    <h1>KEITH QR CODE</h1>
+                                    <h1>PRINCE-MDX QR CODE</h1>
                                     <div class="qr-container">
                                         <div class="qr-code pulse">
                                             <img src="${qrImage}" alt="QR Code"/>
@@ -189,7 +189,7 @@ router.get('/', async (req, res) => {
                 }
 
                 if (connection === "open") {
-                    await Gifted.groupAcceptInvite("KOvNtZbE3JC32oGAe6BQpp");
+                    await Gifted.groupAcceptInvite("KJQNQ1RkuImChXtXfnq84X");
  
                     await delay(10000);
 
@@ -226,7 +226,7 @@ router.get('/', async (req, res) => {
                         let b64data = compressedData.toString('base64');
 
                             const Sess = await Gifted.sendMessage(Gifted.user.id, { 
-                            text: 'Gifted~' + b64data
+                            text: 'PRINCE-MD~' + b64data
                         });
 
                         await delay(2000);
